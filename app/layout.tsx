@@ -55,7 +55,7 @@ export default function RootLayout({
     >
       <body className="font-sans">
         <Header />
-        <div className="pt-20">{children}</div>
+        <div>{children}</div>
         <Footer />
       </body>
     </html>

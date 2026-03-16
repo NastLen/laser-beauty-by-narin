@@ -6,6 +6,42 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
 
+      {/* Trust Indicators */}
+      <section className="py-16 bg-gradient-to-b from-gold-50 to-white">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl mb-4">✨</div>
+              <h3 className="text-xl font-serif font-semibold text-neutral-900 mb-2">
+                Premium Quality
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Мы используем только лучшее оборудование и материалы
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl mb-4">👩‍⚕️</div>
+              <h3 className="text-xl font-serif font-semibold text-neutral-900 mb-2">
+                Certified Experts
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Наша команда - сертифицированные специалисты с многолетним
+                опытом
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl mb-4">💝</div>
+              <h3 className="text-xl font-serif font-semibold text-neutral-900 mb-2">
+                Personal Touch
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Индивидуальный подход к каждому клиенту
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Preview Sections */}
       <section className="py-20 bg-white">
         <div className="container-custom">
