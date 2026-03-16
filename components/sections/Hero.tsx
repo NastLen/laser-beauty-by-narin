@@ -5,73 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background: `
-          radial-gradient(
-            ellipse 1400px 700px at 15% 20%,
-            rgba(250, 241, 227, 0.9),
-            transparent 55%
-          ),
-          radial-gradient(
-            ellipse 1000px 800px at 85% 15%,
-            rgba(242, 227, 198, 0.7),
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse 900px 600px at 50% 70%,
-            rgba(234, 216, 166, 0.5),
-            transparent 65%
-          ),
-          radial-gradient(
-            ellipse 1200px 500px at 70% 85%,
-            rgba(250, 241, 227, 0.6),
-            transparent 70%
-          ),
-          linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.4) 0%,
-            transparent 40%,
-            transparent 60%,
-            rgba(234, 216, 166, 0.2) 100%
-          ),
-          linear-gradient(
-            25deg,
-            rgba(242, 227, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 30% 50%,
-            rgba(255, 248, 237, 0.95),
-            rgba(250, 241, 227, 0.9) 35%,
-            rgba(242, 227, 198, 0.85) 70%,
-            rgba(234, 216, 166, 0.8) 100%
-          )
-        `,
-      }}
-    >
-      {/* Subtle ambient light accents */}
-      <div
-        className="absolute top-1/5 right-1/4 w-[600px] h-[600px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255, 248, 237, 0.4), transparent 70%)",
-          filter: "blur(80px)",
-          animation: "float 8s ease-in-out infinite",
-        }}
-      ></div>
-      <div
-        className="absolute bottom-1/4 left-1/5 w-[700px] h-[700px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(234, 216, 166, 0.25), transparent 70%)",
-          filter: "blur(90px)",
-          animation: "float 10s ease-in-out infinite",
-          animationDelay: "2s",
-        }}
-      ></div>
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       <div className="container-custom relative z-10 text-center">
         <div className="max-w-5xl mx-auto space-y-10">
           {/* Overline */}

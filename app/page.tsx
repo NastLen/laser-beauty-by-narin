@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Hero />
 
       {/* Trust Indicators */}
-      <section className="py-16 bg-gradient-to-b from-gold-50 to-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
