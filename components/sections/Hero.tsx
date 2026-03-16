@@ -126,7 +126,7 @@ export default function Hero() {
                     }}
                   ></div>
                   <span
-                    className="font-script text-5xl md:text-6xl lg:text-7xl font-normal tracking-normal"
+                    className="font-script text-3xl md:text-4xl lg:text-5xl font-normal tracking-normal py-2 md:py-3 lg:py-4"
                     style={{
                       background:
                         "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A, #DAA520)",
