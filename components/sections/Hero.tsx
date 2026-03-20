@@ -8,13 +8,6 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       <div className="container-custom relative z-10 text-center">
         <div className="max-w-5xl mx-auto space-y-10">
-          {/* Overline */}
-          <div className="inline-block">
-            <span className="px-6 py-2 bg-gradient-to-r from-gold-200 to-champagne-200 text-gold-800 font-semibold tracking-wide uppercase text-sm rounded-full border border-gold-300/50 shadow-elegant">
-              Premium Laser Hair Removal
-            </span>
-          </div>
-
           {/* Main heading */}
           <div className="inline-block">
             <h1
@@ -91,19 +84,35 @@ export default function Hero() {
             environment designed for your comfort
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-5 justify-center pt-6">
+          {/* CTA Button */}
+          <div className="flex justify-center pt-8">
             <Link href="/contact">
-              <Button size="lg">Book Your Session</Button>
-            </Link>
-            <Link href="/services">
-              <Button variant="secondary" size="lg">
-                Explore Services
-              </Button>
+              <button
+                className="px-10 py-4 rounded-full text-lg font-medium transition-all duration-300"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A)",
+                  color: "#000",
+                  boxShadow: "0 10px 25px rgba(201, 169, 97, 0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 15px 35px rgba(201, 169, 97, 0.5)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 25px rgba(201, 169, 97, 0.3)";
+                }}
+              >
+                Book Appointment
+              </button>
             </Link>
           </div>
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
     </section>
   );
 }
