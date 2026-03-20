@@ -1,10 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import heroBg from "@/app/images/rosa-rafael-pxax5WuM7eY-unsplash.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroBg.src}
+          alt="background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
       <div className="container-custom relative z-10 text-center">
         <div className="max-w-5xl mx-auto space-y-10">
           {/* Main heading */}
@@ -80,7 +90,7 @@ export default function Hero() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-3xl text-neutral-600 max-w-3xl mx-auto leading-relaxed font-light px-4 sm:px-0">
+          <p className="text-lg sm:text-xl md:text-3xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light px-4 sm:px-0">
             Experience cutting-edge laser technology in a luxurious, serene
             environment designed for your comfort
           </p>
