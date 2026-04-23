@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { LanguageProvider } from "@/app/context/LanguageContext";
 
 const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -54,9 +55,11 @@ export default function RootLayout({
       className={`${playfair.variable} ${dmSans.variable} ${marcellus.variable} ${greatVibes.variable}`}
     >
       <body className="font-sans">
-        <Header />
-        <div>{children}</div>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <div>{children}</div>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

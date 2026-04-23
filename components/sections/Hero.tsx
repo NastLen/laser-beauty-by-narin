@@ -1,96 +1,33 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import heroBg from "@/app/images/IMG_3644.jpg";
+import { useLanguage } from "@/app/context/LanguageContext";
 
-type Language = "de" | "en" | "ru";
-
-const translations: Record<
-  Language,
-  {
-    label: string;
-    subtitle: string;
-    cta: string;
-    languageButton: string;
-  }
-> = {
+const translations = {
   de: {
-    label: "Deutsch",
     subtitle:
       "Erleben Sie modernste Lasertechnologie in einer luxuriösen, ruhigen Umgebung, die für Ihren Komfort geschaffen wurde.",
     cta: "Termin buchen",
-    languageButton: "🇩🇪 DE",
   },
   en: {
-    label: "English",
     subtitle:
       "Experience cutting-edge laser technology in a luxurious, serene environment designed for your comfort",
     cta: "Book Appointment",
-    languageButton: "🇬🇧 EN",
   },
   ru: {
-    label: "Русский",
     subtitle:
       "Оцените передовые лазерные технологии в роскошной и спокойной атмосфере, созданной для вашего комфорта.",
     cta: "Записаться",
-    languageButton: "🇷🇺 RU",
   },
 };
 
 export default function Hero() {
-  const [language, setLanguage] = useState<Language>("de");
+  const { language } = useLanguage();
   const t = translations[language];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Language Switcher */}
-      <div className="absolute top-6 right-6 z-20">
-        <div className="relative group">
-          <button className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm border border-white/20 hover:bg-white/20 transition">
-            {t.languageButton}
-          </button>
-          <div className="absolute right-0 top-full pt-2 w-40 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
-            <div className="rounded-xl bg-black/80 backdrop-blur-md border border-white/10 overflow-hidden shadow-xl">
-              <ul className="text-sm text-white py-1">
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setLanguage("de")}
-                    className={`w-full text-left px-4 py-2 hover:bg-white/10 transition ${
-                      language === "de" ? "bg-white/10" : ""
-                    }`}
-                  >
-                    🇩🇪 Deutsch
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setLanguage("en")}
-                    className={`w-full text-left px-4 py-2 hover:bg-white/10 transition ${
-                      language === "en" ? "bg-white/10" : ""
-                    }`}
-                  >
-                    🇬🇧 English
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => setLanguage("ru")}
-                    className={`w-full text-left px-4 py-2 hover:bg-white/10 transition ${
-                      language === "ru" ? "bg-white/10" : ""
-                    }`}
-                  >
-                    🇷🇺 Русский
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img

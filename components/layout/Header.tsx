@@ -1,32 +1,57 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoLogoFacebook } from "react-icons/io5";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 import { VscMenu } from "react-icons/vsc";
+import { useLanguage, Language } from "@/app/context/LanguageContext";
+
+const translations = {
+  de: {
+    nav: [
+      { href: "/", label: "Hauptseite" },
+      { href: "/about", label: "Über mich" },
+      { href: "/services", label: "Laser-Haarentfernung" },
+      { href: "/pricing", label: "Preisliste" },
+      { href: "/contact", label: "Kontakt" },
+    ],
+    cta: "Termin buchen",
+  },
+  en: {
+    nav: [
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About Me" },
+      { href: "/services", label: "Laser Hair Removal" },
+      { href: "/pricing", label: "Price List" },
+      { href: "/contact", label: "Contact" },
+    ],
+    cta: "Book Appointment",
+  },
+  ru: {
+    nav: [
+      { href: "/", label: "Главная" },
+      { href: "/about", label: "Обо мне" },
+      { href: "/services", label: "Лазерная эпиляция" },
+      { href: "/pricing", label: "Прайс-лист" },
+      { href: "/contact", label: "Контакты" },
+    ],
+    cta: "Записаться",
+  },
+};
+
+const languageLabels: Record<Language, string> = {
+  de: "🇩🇪 DE",
+  en: "🇬🇧 EN",
+  ru: "🇷🇺 RU",
+};
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { href: "/", label: "Главная" },
-    { href: "/about", label: "Обо мне" },
-    { href: "/services", label: "Лазерная эпиляция" },
-    { href: "/pricing", label: "Прайс-лист" },
-    { href: "/contact", label: "Контакты" },
-  ];
+  const { language, setLanguage } = useLanguage();
+  const t = translations[language];
 
   return (
     <>
@@ -55,13 +80,13 @@ export default function Header() {
         )}
       </button>
 
-      {/* Sidebar Menu (all screens) */}
+      {/* Sidebar Menu */}
       <aside
         className={`fixed top-0 left-0 h-screen w-64 z-50 bg-white/95 backdrop-blur-md shadow-elegant flex flex-col items-center pt-28 pb-10 transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-72"}`}
       >
         {/* Vertical Navigation */}
         <nav className="flex flex-col gap-6 w-full flex-1">
-          {navLinks.map((link) => (
+          {t.nav.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -77,12 +102,30 @@ export default function Header() {
           ))}
           <Link href="/contact" className="mt-8 px-6">
             <button className="w-full px-6 py-3 bg-gradient-to-r from-gold-500 via-gold-600 to-bronze-500 text-white text-lg font-semibold rounded-full hover:shadow-glow-gold transition-all duration-300 hover:scale-105">
-              Записаться
+              {t.cta}
             </button>
           </Link>
         </nav>
+
+        {/* Language Switcher */}
+        <div className="flex gap-2 mt-6 mb-4">
+          {(["de", "en", "ru"] as Language[]).map((lang) => (
+            <button
+              key={lang}
+              onClick={() => setLanguage(lang)}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                language === lang
+                  ? "bg-gradient-to-r from-gold-500 to-gold-600 text-white shadow-soft"
+                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+              }`}
+            >
+              {languageLabels[lang]}
+            </button>
+          ))}
+        </div>
+
         {/* Social Icons */}
-        <div className="flex gap-4 mt-auto pb-10">
+        <div className="flex gap-4 pb-10">
           <a
             href="#"
             className="p-3 rounded-full bg-gold-100 hover:bg-gold-200 transition-colors"
