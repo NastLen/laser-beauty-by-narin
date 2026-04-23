@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import heroBg from "@/app/images/rosa-rafael-pxax5WuM7eY-unsplash.jpg";
+import heroBg from "@/app/images/IMG_3644.jpg";
 
 type Language = "de" | "en" | "ru";
 
