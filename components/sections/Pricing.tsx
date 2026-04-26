@@ -152,20 +152,38 @@ export default function Pricing() {
 
       <div className="relative z-10 container-custom max-w-6xl mx-auto">
         {/* Heading */}
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-white/50 uppercase tracking-[0.3em] text-sm font-light">{t.note}</p>
-          <h2 className="text-5xl md:text-6xl font-serif font-light text-white">
-            {t.title}{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
+        <div className="text-center mb-16 space-y-5">
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-gold-400" />
+            <p className="text-white/70 uppercase tracking-[0.35em] text-xs font-medium">{t.note}</p>
+            <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-gold-400" />
+          </div>
+
+          <div
+            className="inline-block px-10 py-6 rounded-2xl"
+            style={{ backgroundColor: "rgba(10,10,10,0.55)", backdropFilter: "blur(12px)", border: "1px solid rgba(201,169,97,0.3)" }}
+          >
+            <h2 className="text-5xl md:text-7xl font-serif font-light text-white tracking-wide">
+              {t.title}
+            </h2>
+            <p
+              className="text-2xl md:text-3xl font-serif font-semibold mt-2 tracking-widest uppercase"
+              style={{
+                background: "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A, #D4AF37)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               {t.subtitle}
-            </span>
-          </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto" />
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-[1px] w-20 bg-gradient-to-r from-transparent to-gold-400" />
+            <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+            <div className="h-[1px] w-20 bg-gradient-to-l from-transparent to-gold-400" />
+          </div>
         </div>
 
         {/* Price grid */}

@@ -5,14 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IoLogoFacebook } from "react-icons/io5";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
-import { VscMenu } from "react-icons/vsc";
+
 import { useLanguage, Language } from "@/app/context/LanguageContext";
 
 const translations = {
   de: {
     nav: [
       { href: "/", label: "Hauptseite" },
-      { href: "/about", label: "Über mich" },
       { href: "/pricing", label: "Preisliste" },
       { href: "/contact", label: "Kontakt" },
     ],
@@ -21,7 +20,6 @@ const translations = {
   en: {
     nav: [
       { href: "/", label: "Home" },
-      { href: "/about", label: "About Me" },
       { href: "/pricing", label: "Price List" },
       { href: "/contact", label: "Contact" },
     ],
@@ -30,7 +28,6 @@ const translations = {
   ru: {
     nav: [
       { href: "/", label: "Главная" },
-      { href: "/about", label: "Обо мне" },
       { href: "/pricing", label: "Прайс-лист" },
       { href: "/contact", label: "Контакты" },
     ],
@@ -54,26 +51,20 @@ export default function Header() {
     <>
       {/* Hamburger Icon always visible */}
       <button
-        className="fixed top-6 left-6 z-[60] p-3 rounded-full bg-white/90 shadow-elegant border border-gold-200"
+        className="fixed top-6 left-6 z-[60] flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-md shadow-lg border border-gold-200 hover:border-gold-400 transition-all duration-300 group"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="Toggle menu"
       >
         {isMobileMenuOpen ? (
-          <svg
-            className="w-7 h-7 text-gold-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
+          <svg className="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
-          <VscMenu className="w-7 h-7 text-gold-700" />
+          <span className="flex flex-col gap-[5px] items-center">
+            <span className="block w-5 h-[1.5px] rounded-full bg-gradient-to-r from-gold-500 to-gold-700 transition-all duration-300" />
+            <span className="block w-3.5 h-[1.5px] rounded-full bg-gradient-to-r from-gold-400 to-gold-600 transition-all duration-300 group-hover:w-5" />
+            <span className="block w-5 h-[1.5px] rounded-full bg-gradient-to-r from-gold-500 to-gold-700 transition-all duration-300" />
+          </span>
         )}
       </button>
 

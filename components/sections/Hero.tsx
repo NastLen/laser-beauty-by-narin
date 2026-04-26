@@ -8,17 +8,17 @@ const translations = {
   de: {
     subtitle:
       "Erleben Sie modernste Lasertechnologie in einer luxuriösen, ruhigen Umgebung, die für Ihren Komfort geschaffen wurde.",
-    cta: "Termin buchen",
+    cta: "Preisliste ansehen",
   },
   en: {
     subtitle:
       "Experience cutting-edge laser technology in a luxurious, serene environment designed for your comfort",
-    cta: "Book Appointment",
+    cta: "View Price List",
   },
   ru: {
     subtitle:
       "Оцените передовые лазерные технологии в роскошной и спокойной атмосфере, созданной для вашего комфорта.",
-    cta: "Записаться",
+    cta: "Смотреть прайс-лист",
   },
 };
 
@@ -35,7 +35,7 @@ export default function Hero() {
           alt="background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/15"></div>
       </div>
       <div className="container-custom relative z-10 text-center">
         <div className="max-w-5xl mx-auto space-y-10">
@@ -112,13 +112,26 @@ export default function Hero() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-3xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light px-4 sm:px-0">
-            {t.subtitle}
-          </p>
+          <div className="px-4 sm:px-0 flex justify-center">
+            <div
+              className="max-w-3xl px-8 py-4 rounded-2xl"
+              style={{
+                backgroundColor: "rgba(255,248,237,0.55)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(201,169,97,0.3)",
+              }}
+            >
+              <p
+                className="text-lg sm:text-xl md:text-2xl leading-relaxed font-normal tracking-wide text-neutral-900 font-brand"
+              >
+                {t.subtitle}
+              </p>
+            </div>
+          </div>
 
           {/* CTA Button */}
           <div className="flex justify-center pt-8">
-            <Link href="/contact">
+            <Link href="/pricing">
               <button
                 className="px-7 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-all duration-300"
                 style={{
