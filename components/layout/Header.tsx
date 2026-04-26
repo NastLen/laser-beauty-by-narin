@@ -13,7 +13,6 @@ const translations = {
     nav: [
       { href: "/", label: "Hauptseite" },
       { href: "/about", label: "Über mich" },
-      { href: "/services", label: "Laser-Haarentfernung" },
       { href: "/pricing", label: "Preisliste" },
       { href: "/contact", label: "Kontakt" },
     ],
@@ -23,7 +22,6 @@ const translations = {
     nav: [
       { href: "/", label: "Home" },
       { href: "/about", label: "About Me" },
-      { href: "/services", label: "Laser Hair Removal" },
       { href: "/pricing", label: "Price List" },
       { href: "/contact", label: "Contact" },
     ],
@@ -33,7 +31,6 @@ const translations = {
     nav: [
       { href: "/", label: "Главная" },
       { href: "/about", label: "Обо мне" },
-      { href: "/services", label: "Лазерная эпиляция" },
       { href: "/pricing", label: "Прайс-лист" },
       { href: "/contact", label: "Контакты" },
     ],

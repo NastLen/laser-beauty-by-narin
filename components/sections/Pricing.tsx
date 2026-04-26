@@ -1,110 +1,138 @@
 "use client";
 
-import Section from "@/components/ui/Section";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
 import { useLanguage } from "@/app/context/LanguageContext";
+import servicesBg from "@/app/images/services-bg.jpg";
 
 const translations = {
   de: {
-    heading1: "Behandlungs-",
-    heading2: "pakete",
-    desc: "Flexible Optionen, die auf Ihre Ziele und Ihr Budget zugeschnitten sind",
-    footer1: "Preise variieren je nach Behandlungsbereich und individuellen Bedürfnissen",
-    footer2: "für ein individuelles Angebot und eine kostenlose Beratung",
-    contactUs: "Kontaktieren Sie uns",
-    packages: [
+    title: "Preisliste",
+    subtitle: "DEKA Motus AX",
+    note: "Alle Preise pro Sitzung",
+    categories: [
       {
-        name: "Einzelsitzung",
-        description: "Perfekt, um unsere Leistungen auszuprobieren oder einen kleinen Bereich zu behandeln",
-        features: ["Eine Behandlungssitzung", "Individuelle Beratung", "Nachsorge-Anleitung"],
-        popular: false,
-        note: "Ab",
-        cta: "Jetzt buchen",
+        name: "Gesicht",
+        items: [
+          { label: "Oberlippe", price: "€40" },
+          { label: "Kinn", price: "€40" },
+          { label: "Oberlippe & Kinn", price: "€70" },
+          { label: "Koteletten", price: "€40" },
+          { label: "Wangen", price: "€40" },
+          { label: "Hals", price: "€50" },
+        ],
       },
       {
-        name: "Paketangebot",
-        description: "Bestes Preis-Leistungs-Verhältnis für optimale, langanhaltende Ergebnisse",
-        features: ["6–8 Behandlungssitzungen", "Umfassende Beratung", "Vorrangige Terminvergabe", "Nachsorgeprodukte inklusive"],
-        popular: true,
-        note: "Beliebteste Wahl",
-        cta: "Jetzt starten",
+        name: "Arme",
+        items: [
+          { label: "Unterarme", price: "€80" },
+          { label: "Achseln", price: "€70" },
+          { label: "Arme komplett", price: "€130" },
+        ],
       },
       {
-        name: "Ganzkörperprogramm",
-        description: "Ultimatives Luxuserlebnis für vollständige Haarentfernung",
-        features: ["Unbegrenzte Bereiche inklusive", "8–10 Sitzungen", "VIP-Terminvergabe", "Premium Nachsorge-Set", "Kostenlose Nachbehandlungen"],
-        popular: false,
-        note: "Premium",
-        cta: "Mehr erfahren",
+        name: "Körper",
+        items: [
+          { label: "Bauch (weiße Linie)", price: "€40" },
+          { label: "Bauch komplett", price: "€90" },
+          { label: "Gesäße", price: "€90" },
+          { label: "Bikini klassisch", price: "€70" },
+          { label: "Bikini komplett", price: "€140" },
+        ],
+      },
+      {
+        name: "Beine",
+        items: [
+          { label: "Unterschenkel / Oberschenkel", price: "€110" },
+          { label: "Rückseite der Oberschenkel", price: "€80" },
+          { label: "Beine komplett", price: "€180" },
+        ],
       },
     ],
   },
   en: {
-    heading1: "Treatment",
-    heading2: "Packages",
-    desc: "Flexible options designed to fit your goals and budget",
-    footer1: "Pricing varies by treatment area and individual needs",
-    footer2: "for a personalized quote and free consultation",
-    contactUs: "Contact us",
-    packages: [
+    title: "Price List",
+    subtitle: "DEKA Motus AX",
+    note: "All prices per session",
+    categories: [
       {
-        name: "Single Session",
-        description: "Perfect for trying out our services or targeting a small area",
-        features: ["One treatment session", "Personalized consultation", "Aftercare guidance"],
-        popular: false,
-        note: "Starting from",
-        cta: "Book Now",
+        name: "Face",
+        items: [
+          { label: "Upper lip", price: "€40" },
+          { label: "Chin", price: "€40" },
+          { label: "Upper lip & Chin", price: "€70" },
+          { label: "Sideburns", price: "€40" },
+          { label: "Cheeks", price: "€40" },
+          { label: "Neck", price: "€50" },
+        ],
       },
       {
-        name: "Package Deal",
-        description: "Best value for achieving optimal, long-lasting results",
-        features: ["6-8 treatment sessions", "Comprehensive consultation", "Priority scheduling", "Aftercare products included"],
-        popular: true,
-        note: "Most Popular",
-        cta: "Get Started",
+        name: "Arms",
+        items: [
+          { label: "Forearms", price: "€80" },
+          { label: "Underarms", price: "€70" },
+          { label: "Full arms", price: "€130" },
+        ],
       },
       {
-        name: "Full Body Program",
-        description: "Ultimate luxury experience for complete hair removal",
-        features: ["Unlimited areas included", "8-10 sessions", "VIP scheduling", "Premium aftercare kit", "Complimentary touch-ups"],
-        popular: false,
-        note: "Premium",
-        cta: "Learn More",
+        name: "Body",
+        items: [
+          { label: "Abdomen (white line)", price: "€40" },
+          { label: "Full abdomen", price: "€90" },
+          { label: "Buttocks", price: "€90" },
+          { label: "Bikini classic", price: "€70" },
+          { label: "Full bikini", price: "€140" },
+        ],
+      },
+      {
+        name: "Legs",
+        items: [
+          { label: "Lower / Upper legs", price: "€110" },
+          { label: "Back of thighs", price: "€80" },
+          { label: "Full legs", price: "€180" },
+        ],
       },
     ],
   },
   ru: {
-    heading1: "Пакеты",
-    heading2: "процедур",
-    desc: "Гибкие варианты, разработанные с учётом ваших целей и бюджета",
-    footer1: "Стоимость зависит от зоны обработки и индивидуальных потребностей",
-    footer2: "для индивидуального предложения и бесплатной консультации",
-    contactUs: "Свяжитесь с нами",
-    packages: [
+    title: "Прайс-лист",
+    subtitle: "DEKA Motus AX",
+    note: "Все цены за одну процедуру",
+    categories: [
       {
-        name: "Единственная сессия",
-        description: "Идеально, чтобы попробовать наши услуги или обработать небольшую зону",
-        features: ["Одна процедура", "Персональная консультация", "Рекомендации по уходу"],
-        popular: false,
-        note: "Начиная от",
-        cta: "Записаться",
+        name: "Лицо",
+        items: [
+          { label: "Верхняя губа", price: "€40" },
+          { label: "Подбородок", price: "€40" },
+          { label: "Верхняя губа и подбородок", price: "€70" },
+          { label: "Бакенбарды", price: "€40" },
+          { label: "Щёки", price: "€40" },
+          { label: "Шея", price: "€50" },
+        ],
       },
       {
-        name: "Пакетное предложение",
-        description: "Лучшая цена для достижения оптимальных долговременных результатов",
-        features: ["6–8 сеансов", "Комплексная консультация", "Приоритетная запись", "Продукты по уходу включены"],
-        popular: true,
-        note: "Самое популярное",
-        cta: "Начать",
+        name: "Руки",
+        items: [
+          { label: "Предплечья", price: "€80" },
+          { label: "Подмышки", price: "€70" },
+          { label: "Руки полностью", price: "€130" },
+        ],
       },
       {
-        name: "Программа для всего тела",
-        description: "Максимальный роскошный опыт для полного удаления волос",
-        features: ["Все зоны включены", "8–10 сеансов", "VIP-запись", "Премиальный набор по уходу", "Бесплатные поддерживающие процедуры"],
-        popular: false,
-        note: "Премиум",
-        cta: "Узнать больше",
+        name: "Тело",
+        items: [
+          { label: "Живот (белая линия)", price: "€40" },
+          { label: "Живот полностью", price: "€90" },
+          { label: "Ягодицы", price: "€90" },
+          { label: "Бикини классическое", price: "€70" },
+          { label: "Бикини полностью", price: "€140" },
+        ],
+      },
+      {
+        name: "Ноги",
+        items: [
+          { label: "Голень / Бедро", price: "€110" },
+          { label: "Задняя поверхность бёдер", price: "€80" },
+          { label: "Ноги полностью", price: "€180" },
+        ],
       },
     ],
   },
@@ -115,66 +143,81 @@ export default function Pricing() {
   const t = translations[language];
 
   return (
-    <Section background="cream">
-      <div className="text-center space-y-6 mb-16">
-        <h2 className="text-heading-2 font-serif font-light text-neutral-800">
-          {t.heading1}
-          <span className="block font-semibold text-gold-600">{t.heading2}</span>
-        </h2>
-
-        <div className="w-20 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto rounded-full"></div>
-
-        <p className="text-lg text-neutral-600 max-w-2xl mx-auto">{t.desc}</p>
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <img src={servicesBg.src} alt="" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {t.packages.map((pkg) => (
-          <Card
-            key={pkg.name}
-            className={`relative flex flex-col ${pkg.popular ? "ring-2 ring-gold-400 shadow-glow" : ""}`}
-          >
-            {pkg.popular && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-500 to-gold-600 text-white text-sm font-medium px-6 py-2 rounded-full shadow-soft">
-                {pkg.note}
-              </div>
-            )}
+      <div className="relative z-10 container-custom max-w-6xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-16 space-y-4">
+          <p className="text-white/50 uppercase tracking-[0.3em] text-sm font-light">{t.note}</p>
+          <h2 className="text-5xl md:text-6xl font-serif font-light text-white">
+            {t.title}{" "}
+            <span style={{
+              background: "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
+              {t.subtitle}
+            </span>
+          </h2>
+          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto" />
+        </div>
 
-            <div className="flex-1 space-y-6">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-serif font-semibold text-neutral-800">{pkg.name}</h3>
-                <p className="text-neutral-600 text-sm">{pkg.description}</p>
+        {/* Price grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {t.categories.map((cat) => (
+            <div
+              key={cat.name}
+              className="rounded-2xl border border-gold-400/30 backdrop-blur-md p-10 hover:border-gold-400/60 transition-all duration-300"
+              style={{ backgroundColor: "rgba(10,10,10,0.72)" }}
+            >
+              {/* Category header */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-8 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
+                <h3
+                  className="text-2xl font-serif font-semibold uppercase tracking-widest"
+                  style={{
+                    background: "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {cat.name}
+                </h3>
+                <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
               </div>
 
-              <ul className="space-y-3">
-                {pkg.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-neutral-700">
-                    <svg className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-sm">{feature}</span>
+              {/* Items */}
+              <ul className="space-y-4">
+                {cat.items.map((item, i) => (
+                  <li key={i} className="flex items-center justify-between gap-4 group py-1 border-b border-white/8 last:border-0">
+                    <span className="text-white/90 text-base font-light group-hover:text-white transition-colors">
+                      {item.label}
+                    </span>
+                    <span
+                      className="text-base font-semibold shrink-0"
+                      style={{
+                        background: "linear-gradient(135deg, #C9A961, #D4AF37)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                    >
+                      {item.price}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
-
-            <div className="pt-6 mt-6 border-t border-neutral-200">
-              <Button variant={pkg.popular ? "primary" : "secondary"} className="w-full">
-                {pkg.cta}
-              </Button>
-            </div>
-          </Card>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <div className="mt-12 text-center space-y-2">
-        <p className="text-neutral-600">{t.footer1}</p>
-        <p className="text-neutral-800 font-medium">
-          <a href="#contact" className="text-gold-600 hover:text-gold-700 underline underline-offset-4">
-            {t.contactUs}
-          </a>{" "}
-          {t.footer2}
-        </p>
-      </div>
-    </Section>
+    </section>
   );
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import Section from "@/components/ui/Section";
-import Card from "@/components/ui/Card";
 import { useLanguage } from "@/app/context/LanguageContext";
+import servicesBg from "@/app/images/services-bg.jpg";
 
 const translations = {
   de: {
@@ -66,42 +65,62 @@ export default function Services() {
   const t = translations[language];
 
   return (
-    <Section background="cream">
-      <div className="text-center space-y-6 mb-16">
-        <h2 className="text-heading-2 font-serif font-light text-neutral-800">
-          {t.heading1}
-          <span className="block font-semibold text-gold-600">{t.heading2}</span>
-        </h2>
-
-        <div className="w-20 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto rounded-full"></div>
-
-        <p className="text-lg text-neutral-600 max-w-2xl mx-auto">{t.desc}</p>
+    <section className="relative py-24 overflow-hidden">
+      {/* Background image with dark overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={servicesBg.src}
+          alt=""
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/65" />
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {t.services.map((service) => (
-          <Card key={service.name} className="relative">
-            {service.popular && (
-              <div className="absolute -top-3 -right-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-soft">
-                {t.popular}
+      <div className="relative z-10 container-custom">
+        <div className="text-center space-y-6 mb-16">
+          <h2 className="text-heading-2 font-serif font-light text-white">
+            {t.heading1}
+            <span className="block font-semibold" style={{
+              background: "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>{t.heading2}</span>
+          </h2>
+
+          <div className="w-20 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto rounded-full" />
+
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">{t.desc}</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {t.services.map((service) => (
+            <div
+              key={service.name}
+              className="relative p-6 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm hover:bg-white/15 hover:border-gold-400/50 transition-all duration-300"
+            >
+              {service.popular && (
+                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-soft">
+                  {t.popular}
+                </div>
+              )}
+              <div className="space-y-3">
+                <h3 className="text-xl font-serif font-semibold text-white">{service.name}</h3>
+                <p className="text-white/65 text-sm leading-relaxed">{service.description}</p>
               </div>
-            )}
-            <div className="space-y-3">
-              <h3 className="text-xl font-serif font-semibold text-neutral-800">{service.name}</h3>
-              <p className="text-neutral-600 text-sm leading-relaxed">{service.description}</p>
             </div>
-          </Card>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="mt-12 text-center">
-        <p className="text-neutral-600">
-          {t.footer}{" "}
-          <a href="#contact" className="text-gold-600 font-medium hover:text-gold-700 underline underline-offset-4">
-            {t.footerLink}
-          </a>
-        </p>
+        <div className="mt-12 text-center">
+          <p className="text-white/70">
+            {t.footer}{" "}
+            <a href="#contact" className="text-gold-400 font-medium hover:text-gold-300 underline underline-offset-4">
+              {t.footerLink}
+            </a>
+          </p>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

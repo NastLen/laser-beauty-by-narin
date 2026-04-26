@@ -2,6 +2,7 @@
 
 import Hero from "@/components/sections/Hero";
 import { useLanguage } from "@/app/context/LanguageContext";
+import aboutPhoto from "@/app/images/narin-photo.jpg";
 
 const translations = {
   de: {
@@ -49,16 +50,25 @@ export default function Home() {
 
       {/* About Me */}
       <section className="py-24 bg-white">
-        <div className="container-custom max-w-4xl mx-auto text-center">
+        <div className="container-custom max-w-5xl mx-auto">
           <h2 className="text-center text-4xl md:text-5xl font-serif font-light mb-12 text-neutral-900 uppercase tracking-normal">
             {t.aboutTitle}
           </h2>
 
-          <div className="space-y-8">
-            <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p1}</p>
-            <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p2}</p>
-            <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p3}</p>
-            <p className="text-neutral-700 text-lg leading-relaxed font-light pt-4">{t.cta}</p>
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="w-full md:w-2/5 flex-shrink-0">
+              <img
+                src={aboutPhoto.src}
+                alt="Narin"
+                className="w-full h-[480px] object-cover object-top rounded-2xl shadow-lg"
+              />
+            </div>
+            <div className="space-y-6 text-left">
+              <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p1}</p>
+              <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p2}</p>
+              <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p3}</p>
+              <p className="text-neutral-700 text-lg leading-relaxed font-light pt-2">{t.cta}</p>
+            </div>
           </div>
         </div>
       </section>
