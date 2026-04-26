@@ -80,6 +80,23 @@ export default function Header() {
         )}
       </button>
 
+      {/* Language Switcher — always visible, top-right */}
+      <div className="fixed top-6 right-6 z-[60] flex gap-2">
+        {(["de", "en", "ru"] as Language[]).map((lang) => (
+          <button
+            key={lang}
+            onClick={() => setLanguage(lang)}
+            className={`px-3 py-2 rounded-full text-sm font-medium backdrop-blur-md border transition-all ${
+              language === lang
+                ? "bg-white/90 text-gold-700 border-gold-300 shadow-elegant"
+                : "bg-white/50 text-neutral-600 border-white/30 hover:bg-white/80"
+            }`}
+          >
+            {languageLabels[lang]}
+          </button>
+        ))}
+      </div>
+
       {/* Sidebar Menu */}
       <aside
         className={`fixed top-0 left-0 h-screen w-64 z-50 bg-white/95 backdrop-blur-md shadow-elegant flex flex-col items-center pt-28 pb-10 transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-72"}`}
