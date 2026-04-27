@@ -102,8 +102,7 @@ export default function Home() {
                 {t.infoHeading}
               </h3>
               <p className="text-neutral-700 text-lg leading-relaxed font-light">
-                Dotzheimer Straße 85<br />
-                Wiesbaden<br />
+                Dotzheimer Straße 85, 65197 Wiesbaden<br />
                 Tel.: +4916091369810 (WhatsApp)<br />
                 narin861418@gmail.com
               </p>

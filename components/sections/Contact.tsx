@@ -197,7 +197,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-neutral-800">{t.addressLabel}</p>
-                    <p className="text-neutral-600">Dotzheimer Straße 85<br />Wiesbaden</p>
+                    <p className="text-neutral-600">Dotzheimer Straße 85, 65197 Wiesbaden</p>
                   </div>
                 </div>
 

@@ -53,7 +53,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">{t.contactHeading}</h4>
             <ul className="space-y-2 text-sm">
-              <li>📍 Dotzheimer Straße 85, Wiesbaden</li>
+              <li>📍 Dotzheimer Straße 85, 65197 Wiesbaden</li>
               <li>📞 +4916091369810</li>
               <li>✉️ narin861418@gmail.com</li>
               <li className="pt-4">
