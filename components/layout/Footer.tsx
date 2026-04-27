@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { IoLogoFacebook } from "react-icons/io5";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 import { useLanguage } from "@/app/context/LanguageContext";
 
@@ -56,14 +55,18 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">{t.contactHeading}</h4>
             <ul className="space-y-2 text-sm">
               <li>📍 Dotzheimer Straße 85, Wiesbaden</li>
-              <li>📞 +49 611 1234567</li>
-              <li>✉️ info@laserbeautybynarin.com</li>
-              <li className="pt-4 flex space-x-4">
-                <a href="#" aria-label="Instagram">
-                  <PiInstagramLogoDuotone className="w-5 h-5 text-cream-200" />
-                </a>
-                <a href="#" aria-label="Facebook">
-                  <IoLogoFacebook className="w-5 h-5 text-cream-200" />
+              <li>📞 +4916091369810</li>
+              <li>✉️ narin861418@gmail.com</li>
+              <li className="pt-4">
+                <a
+                  href="https://www.instagram.com/laser_beauty_by_narin/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-gold-400 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <PiInstagramLogoDuotone className="w-5 h-5" />
+                  @laser_beauty_by_narin
                 </a>
               </li>
             </ul>

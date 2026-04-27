@@ -13,7 +13,7 @@ const translations = {
     cta: "Sie können jederzeit einen Termin buchen.",
     contactHeading: "KONTAKT AUFNEHMEN",
     hoursHeading: "ÖFFNUNGSZEITEN",
-    hoursText: ["Di. bis Fr.: 09:30 – 20:00 Uhr", "Sa.: 10:00 – 16:00 Uhr", "So. bis Mo.: Geschlossen"],
+    hoursText: ["Mo. – Fr.: 10:00 – 18:00 Uhr", "Sa.: 10:00 – 16:00 Uhr", "So.: Geschlossen", "Termine nach Vereinbarung"],
     infoHeading: "INFO",
   },
   en: {
@@ -24,7 +24,7 @@ const translations = {
     cta: "You are always welcome to book your appointment anytime.",
     contactHeading: "GET IN TOUCH",
     hoursHeading: "OPENING HOURS",
-    hoursText: ["Tue. to Fri.: 09:30 AM – 08:00 PM", "Sat.: 10:00 AM – 04:00 PM", "Sun. to Mon.: Closed"],
+    hoursText: ["Mon. – Fri.: 10:00 – 18:00", "Sat.: 10:00 – 16:00", "Sun.: Closed", "Appointments by arrangement"],
     infoHeading: "INFO",
   },
   ru: {
@@ -35,7 +35,7 @@ const translations = {
     cta: "Вы всегда можете записаться на процедуру в любое время.",
     contactHeading: "СВЯЖИТЕСЬ С НАМИ",
     hoursHeading: "ЧАСЫ РАБОТЫ",
-    hoursText: ["Вт. – Пт.: 09:30 – 20:00", "Сб.: 10:00 – 16:00", "Вс. – Пн.: Закрыто"],
+    hoursText: ["Пн. – Пт.: 10:00 – 18:00", "Сб.: 10:00 – 16:00", "Вс.: Закрыто", "Запись по договорённости"],
     infoHeading: "ИНФОРМАЦИЯ",
   },
 };
@@ -91,7 +91,8 @@ export default function Home() {
               <p className="text-neutral-700 text-lg leading-relaxed font-light">
                 {t.hoursText[0]}<br />
                 {t.hoursText[1]}<br />
-                {t.hoursText[2]}
+                {t.hoursText[2]}<br />
+                <span className="italic">{t.hoursText[3]}</span>
               </p>
             </div>
 
@@ -103,14 +104,12 @@ export default function Home() {
               <p className="text-neutral-700 text-lg leading-relaxed font-light">
                 Dotzheimer Straße 85<br />
                 Wiesbaden<br />
-                Tel.: +49 611 1234567
+                Tel.: +4916091369810 (WhatsApp)<br />
+                narin861418@gmail.com
               </p>
               <div className="flex justify-center gap-4 pt-4">
-                <a href="#" target="_blank" className="px-6 py-3 border border-neutral-400 rounded-full text-base font-medium hover:bg-neutral-100 transition">
-                  Instagram
-                </a>
-                <a href="#" target="_blank" className="px-6 py-3 border border-neutral-400 rounded-full text-base font-medium hover:bg-neutral-100 transition">
-                  Facebook
+                <a href="https://www.instagram.com/laser_beauty_by_narin/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-neutral-400 rounded-full text-base font-medium hover:bg-neutral-100 transition">
+                  @laser_beauty_by_narin
                 </a>
               </div>
             </div>

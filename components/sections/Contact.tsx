@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { IoLogoFacebook } from "react-icons/io5";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -31,11 +30,12 @@ const translations = {
     emailLabel: "E-Mail",
     hoursHeading: "Öffnungszeiten",
     hours: [
-      { day: "Di. – Fr.", time: "09:30 – 20:00 Uhr" },
+      { day: "Mo. – Fr.", time: "10:00 – 18:00 Uhr" },
       { day: "Sa.", time: "10:00 – 16:00 Uhr" },
-      { day: "So. – Mo.", time: "Geschlossen" },
+      { day: "So.", time: "Geschlossen" },
+      { day: "Termine nach Vereinbarung", time: "" },
     ],
-    followHeading: "Folgen Sie uns",
+    followHeading: "Folgen Sie uns auf Instagram",
   },
   en: {
     heading1: "Book Your",
@@ -60,11 +60,12 @@ const translations = {
     emailLabel: "Email",
     hoursHeading: "Opening Hours",
     hours: [
-      { day: "Monday – Friday", time: "9:00 AM – 7:00 PM" },
-      { day: "Saturday", time: "10:00 AM – 5:00 PM" },
-      { day: "Sunday", time: "Closed" },
+      { day: "Mon. – Fri.", time: "10:00 – 18:00" },
+      { day: "Sat.", time: "10:00 – 16:00" },
+      { day: "Sun.", time: "Closed" },
+      { day: "Appointments by arrangement", time: "" },
     ],
-    followHeading: "Follow Us",
+    followHeading: "Follow us on Instagram",
   },
   ru: {
     heading1: "Запишитесь на",
@@ -89,11 +90,12 @@ const translations = {
     emailLabel: "E-mail",
     hoursHeading: "Часы работы",
     hours: [
-      { day: "Пн. – Пт.", time: "9:00 – 19:00" },
-      { day: "Сб.", time: "10:00 – 17:00" },
+      { day: "Пн. – Пт.", time: "10:00 – 18:00" },
+      { day: "Сб.", time: "10:00 – 16:00" },
       { day: "Вс.", time: "Закрыто" },
+      { day: "Запись по договорённости", time: "" },
     ],
-    followHeading: "Мы в соцсетях",
+    followHeading: "Мы в Instagram",
   },
 };
 
@@ -205,7 +207,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-neutral-800">{t.phoneLabel}</p>
-                    <p className="text-neutral-600">+49 611 1234567</p>
+                    <p className="text-neutral-600">+4916091369810 (WhatsApp)</p>
                   </div>
                 </div>
 
@@ -215,7 +217,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-neutral-800">{t.emailLabel}</p>
-                    <p className="text-neutral-600">info@laserbeautybynarin.com</p>
+                    <p className="text-neutral-600">narin861418@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -235,14 +237,16 @@ export default function Contact() {
 
             <div>
               <h3 className="text-xl font-serif font-semibold text-neutral-800 mb-4">{t.followHeading}</h3>
-              <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-gold-100 hover:bg-gold-200 rounded-xl flex items-center justify-center text-gold-600 transition-colors" aria-label="Facebook">
-                  <IoLogoFacebook className="w-5 h-5 text-cream-500" />
-                </a>
-                <a href="#" className="w-12 h-12 bg-gold-100 hover:bg-gold-200 rounded-xl flex items-center justify-center text-gold-600 transition-colors" aria-label="Instagram">
-                  <PiInstagramLogoDuotone className="w-5 h-5 text-cream-500" />
-                </a>
-              </div>
+              <a
+                href="https://www.instagram.com/laser_beauty_by_narin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 w-auto px-4 py-3 bg-gold-100 hover:bg-gold-200 rounded-xl text-gold-700 font-medium transition-colors"
+                aria-label="Instagram"
+              >
+                <PiInstagramLogoDuotone className="w-5 h-5" />
+                @laser_beauty_by_narin
+              </a>
             </div>
           </div>
         </div>
