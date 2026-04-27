@@ -7,17 +7,16 @@ import { useLanguage } from "@/app/context/LanguageContext";
 const translations = {
   de: {
     subtitle:
-      "Erleben Sie modernste Lasertechnologie in einer luxuriösen, ruhigen Umgebung, die für Ihren Komfort geschaffen wurde.",
+      "Dauerhaft glatte Haut: professionell, sanft und ganz persönlich.",
     cta: "Preisliste ansehen",
   },
   en: {
-    subtitle:
-      "Experience cutting-edge laser technology in a luxurious, serene environment designed for your comfort",
+    subtitle: "Smooth, confident skin: treated with care, just for you.",
     cta: "View Price List",
   },
   ru: {
     subtitle:
-      "Оцените передовые лазерные технологии в роскошной и спокойной атмосфере, созданной для вашего комфорта.",
+      "Гладкая кожа навсегда: с заботой, профессионально и именно для вас.",
     cta: "Смотреть прайс-лист",
   },
 };
@@ -121,9 +120,7 @@ export default function Hero() {
                 border: "1px solid rgba(201,169,97,0.3)",
               }}
             >
-              <p
-                className="text-lg sm:text-xl md:text-2xl leading-relaxed font-normal tracking-wide text-neutral-900 font-brand"
-              >
+              <p className="text-lg sm:text-xl md:text-2xl leading-relaxed font-normal tracking-wide text-neutral-900 font-brand">
                 {t.subtitle}
               </p>
             </div>

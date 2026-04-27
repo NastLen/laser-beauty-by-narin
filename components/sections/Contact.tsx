@@ -84,7 +84,7 @@ const translations = {
     placeholderMessage: "Расскажите о своих пожеланиях или задайте вопросы...",
     submit: "Отправить",
     alert: "Спасибо за ваш интерес! Мы свяжемся с вами в ближайшее время.",
-    visitHeading: "Посетите наш студию",
+    visitHeading: "Посетите нашу студию",
     addressLabel: "Адрес",
     phoneLabel: "Телефон",
     emailLabel: "E-mail",

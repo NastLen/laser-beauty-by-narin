@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IoLogoFacebook } from "react-icons/io5";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 
 import { useLanguage, Language } from "@/app/context/LanguageContext";
@@ -69,7 +68,16 @@ export default function Header() {
       </button>
 
       {/* Language Switcher — always visible, top-right */}
-      <div className="fixed top-6 right-6 z-[60] flex gap-2">
+      <div className="fixed top-6 right-6 z-[60] flex gap-2 items-center">
+        <a
+          href="https://www.instagram.com/laser_beauty_by_narin/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-md border border-gold-200 hover:border-gold-400 shadow-lg transition-all duration-300"
+        >
+          <PiInstagramLogoDuotone className="w-5 h-5 text-gold-600" />
+        </a>
         {(["de", "en", "ru"] as Language[]).map((lang) => (
           <button
             key={lang}
@@ -132,18 +140,13 @@ export default function Header() {
         {/* Social Icons */}
         <div className="flex gap-4 pb-10">
           <a
-            href="#"
+            href="https://www.instagram.com/laser_beauty_by_narin/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-3 rounded-full bg-gold-100 hover:bg-gold-200 transition-colors"
             aria-label="Instagram"
           >
             <PiInstagramLogoDuotone className="w-6 h-6 text-cream-500" />
-          </a>
-          <a
-            href="#"
-            className="p-3 rounded-full bg-gold-100 hover:bg-gold-200 transition-colors"
-            aria-label="Facebook"
-          >
-            <IoLogoFacebook className="w-6 h-6 text-cream-500" />
           </a>
         </div>
       </aside>

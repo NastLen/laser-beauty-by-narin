@@ -45,7 +45,6 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4">{t.navHeading}</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-gold-400 transition-colors">{t.links.about}</Link></li>
-              <li><Link href="/services" className="hover:text-gold-400 transition-colors">{t.links.services}</Link></li>
               <li><Link href="/pricing" className="hover:text-gold-400 transition-colors">{t.links.pricing}</Link></li>
               <li><Link href="/contact" className="hover:text-gold-400 transition-colors">{t.links.contact}</Link></li>
             </ul>
