@@ -36,8 +36,8 @@ const translations = {
           { label: "Bauch (weiße Linie)", duration: "20 Min.", price: "40€" },
           { label: "Bauch komplett", duration: "40 Min.", price: "90€" },
           { label: "Gesäße", duration: "35 Min.", price: "90€" },
-          { label: "Bikini klassisch", duration: "30 Min.", price: "80€" },
-          { label: "Bikini komplett", duration: "50 Min.", price: "190€" },
+          { label: "Bikini klassische", duration: "30 Min.", price: "80€" },
+          { label: "Bikini komplett", duration: "50 Min.", price: "150€" },
         ],
       },
       {
@@ -45,7 +45,7 @@ const translations = {
         items: [
           { label: "Unterschenkel / Oberschenkel", duration: "1 Std.", price: "110€" },
           { label: "Rückseite der Oberschenkel", duration: "40 Min.", price: "80€" },
-          { label: "Beine komplett", duration: "1 Std. 20 Min.", price: "180€" },
+          { label: "Beine komplett", duration: "1 Std. 20 Min.", price: "190€" },
         ],
       },
     ],
@@ -96,7 +96,7 @@ const translations = {
           { label: "Full abdomen", duration: "40 min.", price: "90€" },
           { label: "Buttocks", duration: "35 min.", price: "90€" },
           { label: "Bikini classic", duration: "30 min.", price: "80€" },
-          { label: "Full bikini", duration: "50 min.", price: "190€" },
+          { label: "Full bikini", duration: "50 min.", price: "150€" },
         ],
       },
       {
@@ -104,7 +104,7 @@ const translations = {
         items: [
           { label: "Lower / Upper legs", duration: "1 hr.", price: "110€" },
           { label: "Back of thighs", duration: "40 min.", price: "80€" },
-          { label: "Full legs", duration: "1 hr. 20 min.", price: "180€" },
+          { label: "Full legs", duration: "1 hr. 20 min.", price: "190€" },
         ],
       },
     ],
@@ -155,7 +155,7 @@ const translations = {
           { label: "Живот полностью", duration: "40 мин.", price: "90€" },
           { label: "Ягодицы", duration: "35 мин.", price: "90€" },
           { label: "Бикини классическое", duration: "30 мин.", price: "80€" },
-          { label: "Бикини полностью", duration: "50 мин.", price: "190€" },
+          { label: "Бикини полностью", duration: "50 мин.", price: "150€" },
         ],
       },
       {
@@ -163,7 +163,7 @@ const translations = {
         items: [
           { label: "Голень / Бедро", duration: "1 ч.", price: "110€" },
           { label: "Задняя поверхность бёдер", duration: "40 мин.", price: "80€" },
-          { label: "Ноги полностью", duration: "1 ч. 20 мин.", price: "180€" },
+          { label: "Ноги полностью", duration: "1 ч. 20 мин.", price: "190€" },
         ],
       },
     ],
