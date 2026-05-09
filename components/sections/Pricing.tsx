@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/app/context/LanguageContext";
 import servicesBg from "@/app/images/services-bg.jpg";
+import { AnimateIn, AnimateStagger, AnimateStaggerItem } from "@/components/ui/AnimateIn";
 
 const translations = {
   de: {
@@ -210,7 +211,7 @@ export default function Pricing() {
       <div className="relative z-10 container-custom max-w-6xl mx-auto">
 
         {/* ── Heading ── */}
-        <div className="text-center mb-14 space-y-5">
+        <AnimateIn className="text-center mb-14 space-y-5">
           <div className="flex items-center justify-center gap-4">
             <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-gold-400" />
             <p className="text-white/70 uppercase tracking-[0.35em] text-xs font-medium">{t.note}</p>
@@ -237,73 +238,79 @@ export default function Pricing() {
             <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
             <div className="h-[1px] w-20 bg-gradient-to-l from-transparent to-gold-400" />
           </div>
-        </div>
+        </AnimateIn>
 
         {/* ── Laser price grid ── */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
+        <AnimateStagger className="grid md:grid-cols-2 gap-6 mb-10">
           {t.categories.map((cat) => (
-            <div key={cat.name} className="rounded-2xl p-8 hover:border-gold-400/60 transition-all duration-300" style={cardStyle}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
-                <h3 className="text-xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{cat.name}</h3>
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
+            <AnimateStaggerItem key={cat.name}>
+              <div className="rounded-2xl p-8 hover:border-gold-400/60 transition-all duration-300 h-full" style={cardStyle}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
+                  <h3 className="text-xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{cat.name}</h3>
+                  <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
+                </div>
+                <ul className="space-y-3">
+                  {cat.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 py-1 border-b border-white/8 last:border-0">
+                      <span className="text-white/90 text-base font-light flex-1">{item.label}</span>
+                      <span className="text-white/40 text-sm shrink-0">{item.duration}</span>
+                      <span className="text-base font-semibold shrink-0 min-w-[3rem] text-right" style={goldText}>{item.price}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {cat.items.map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 py-1 border-b border-white/8 last:border-0">
-                    <span className="text-white/90 text-base font-light flex-1">{item.label}</span>
-                    <span className="text-white/40 text-sm shrink-0">{item.duration}</span>
-                    <span className="text-base font-semibold shrink-0 min-w-[3rem] text-right" style={goldText}>{item.price}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </AnimateStaggerItem>
           ))}
-        </div>
+        </AnimateStagger>
 
         {/* ── Angebotspakete ── */}
-        <div className="rounded-2xl p-8 md:p-10 mb-10" style={cardStyle}>
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
-            <h3 className="text-2xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{t.packagesTitle}</h3>
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
-          </div>
-          <ul className="space-y-4">
-            {t.packages.map((pkg, i) => (
-              <li key={i} className={`flex items-center gap-3 py-2 border-b border-white/8 last:border-0 ${pkg.highlight ? "mt-4 pt-4 border-t border-gold-400/30" : ""}`}>
-                <span className={`flex-1 text-base font-light ${pkg.highlight ? "text-white font-semibold text-lg" : "text-white/90"}`}>
-                  {pkg.label}
-                </span>
-                <span className="text-white/40 text-sm shrink-0">{pkg.duration}</span>
-                <div className="flex items-center gap-3 shrink-0">
-                  {pkg.oldPrice && (
-                    <span className="text-white/35 text-sm line-through">{pkg.oldPrice}</span>
-                  )}
-                  <span className={`font-semibold min-w-[3.5rem] text-right ${pkg.highlight ? "text-xl" : "text-base"}`} style={goldText}>
-                    {pkg.price}
+        <AnimateIn delay={0.1}>
+          <div className="rounded-2xl p-8 md:p-10 mb-10" style={cardStyle}>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
+              <h3 className="text-2xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{t.packagesTitle}</h3>
+              <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
+            </div>
+            <ul className="space-y-4">
+              {t.packages.map((pkg, i) => (
+                <li key={i} className={`flex items-center gap-3 py-2 border-b border-white/8 last:border-0 ${pkg.highlight ? "mt-4 pt-4 border-t border-gold-400/30" : ""}`}>
+                  <span className={`flex-1 text-base font-light ${pkg.highlight ? "text-white font-semibold text-lg" : "text-white/90"}`}>
+                    {pkg.label}
                   </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <span className="text-white/40 text-sm shrink-0">{pkg.duration}</span>
+                  <div className="flex items-center gap-3 shrink-0">
+                    {pkg.oldPrice && (
+                      <span className="text-white/35 text-sm line-through">{pkg.oldPrice}</span>
+                    )}
+                    <span className={`font-semibold min-w-[3.5rem] text-right ${pkg.highlight ? "text-xl" : "text-base"}`} style={goldText}>
+                      {pkg.price}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </AnimateIn>
 
         {/* ── Beauty ── */}
-        <div className="rounded-2xl p-8 md:p-10" style={cardStyle}>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
-            <h3 className="text-2xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{t.beautyTitle}</h3>
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
+        <AnimateIn delay={0.2}>
+          <div className="rounded-2xl p-8 md:p-10" style={cardStyle}>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
+              <h3 className="text-2xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{t.beautyTitle}</h3>
+              <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
+            </div>
+            <ul className="space-y-3">
+              {t.beauty.map((item, i) => (
+                <li key={i} className="flex items-center justify-between gap-4 py-1 border-b border-white/8 last:border-0">
+                  <span className="text-white/90 text-base font-light">{item.label}</span>
+                  <span className="text-base font-semibold shrink-0" style={goldText}>{item.price}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="space-y-3">
-            {t.beauty.map((item, i) => (
-              <li key={i} className="flex items-center justify-between gap-4 py-1 border-b border-white/8 last:border-0">
-                <span className="text-white/90 text-base font-light">{item.label}</span>
-                <span className="text-base font-semibold shrink-0" style={goldText}>{item.price}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        </AnimateIn>
 
       </div>
     </section>

@@ -3,6 +3,7 @@
 import Hero from "@/components/sections/Hero";
 import { useLanguage } from "@/app/context/LanguageContext";
 import aboutPhoto from "@/app/images/narin-photo.jpg";
+import { AnimateIn, AnimateStagger, AnimateStaggerItem } from "@/components/ui/AnimateIn";
 
 const translations = {
   de: {
@@ -51,24 +52,34 @@ export default function Home() {
       {/* About Me */}
       <section className="py-24 bg-white">
         <div className="container-custom max-w-5xl mx-auto">
-          <h2 className="text-center text-4xl md:text-5xl font-serif font-light mb-12 text-neutral-900 uppercase tracking-normal">
-            {t.aboutTitle}
-          </h2>
+          <AnimateIn>
+            <h2 className="text-center text-4xl md:text-5xl font-serif font-light mb-12 text-neutral-900 uppercase tracking-normal">
+              {t.aboutTitle}
+            </h2>
+          </AnimateIn>
 
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="w-full md:w-2/5 flex-shrink-0">
+            <AnimateIn direction="right" className="w-full md:w-2/5 flex-shrink-0">
               <img
                 src={aboutPhoto.src}
                 alt="Narin"
                 className="w-full h-[480px] object-cover object-top rounded-2xl shadow-lg"
               />
-            </div>
-            <div className="space-y-6 text-left">
-              <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p1}</p>
-              <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p2}</p>
-              <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p3}</p>
-              <p className="text-neutral-700 text-lg leading-relaxed font-light pt-2">{t.cta}</p>
-            </div>
+            </AnimateIn>
+            <AnimateStagger className="space-y-6 text-left">
+              <AnimateStaggerItem>
+                <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p1}</p>
+              </AnimateStaggerItem>
+              <AnimateStaggerItem>
+                <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p2}</p>
+              </AnimateStaggerItem>
+              <AnimateStaggerItem>
+                <p className="text-neutral-700 text-lg leading-relaxed font-light">{t.p3}</p>
+              </AnimateStaggerItem>
+              <AnimateStaggerItem>
+                <p className="text-neutral-700 text-lg leading-relaxed font-light pt-2">{t.cta}</p>
+              </AnimateStaggerItem>
+            </AnimateStagger>
           </div>
         </div>
       </section>
@@ -78,50 +89,58 @@ export default function Home() {
       {/* Contact Section */}
       <section className="py-24 bg-white">
         <div className="container-custom max-w-6xl mx-auto">
-          <h2 className="text-center text-4xl md:text-5xl font-serif font-light mb-12 text-neutral-900">
-            {t.contactHeading}
-          </h2>
+          <AnimateIn>
+            <h2 className="text-center text-4xl md:text-5xl font-serif font-light mb-12 text-neutral-900">
+              {t.contactHeading}
+            </h2>
+          </AnimateIn>
 
-          <div className="grid md:grid-cols-2 gap-16 mb-12 max-w-4xl mx-auto">
+          <AnimateStagger className="grid md:grid-cols-2 gap-16 mb-12 max-w-4xl mx-auto">
             {/* Opening Hours */}
-            <div className="text-center space-y-4">
-              <h3 className="text-lg md:text-xl font-serif font-light text-neutral-900">
-                {t.hoursHeading}
-              </h3>
-              <p className="text-neutral-700 text-lg leading-relaxed font-light">
-                {t.hoursText[0]}<br />
-                {t.hoursText[1]}<br />
-                {t.hoursText[2]}<br />
-                <span className="italic">{t.hoursText[3]}</span>
-              </p>
-            </div>
+            <AnimateStaggerItem>
+              <div className="text-center space-y-4">
+                <h3 className="text-lg md:text-xl font-serif font-light text-neutral-900">
+                  {t.hoursHeading}
+                </h3>
+                <p className="text-neutral-700 text-lg leading-relaxed font-light">
+                  {t.hoursText[0]}<br />
+                  {t.hoursText[1]}<br />
+                  {t.hoursText[2]}<br />
+                  <span className="italic">{t.hoursText[3]}</span>
+                </p>
+              </div>
+            </AnimateStaggerItem>
 
             {/* Info */}
-            <div className="text-center space-y-4">
-              <h3 className="text-lg md:text-xl font-serif font-light text-neutral-900">
-                {t.infoHeading}
-              </h3>
-              <p className="text-neutral-700 text-lg leading-relaxed font-light">
-                Dotzheimer Straße 85, 65197 Wiesbaden<br />
-                Tel.: +4916091369810 (WhatsApp)<br />
-                narin861418@gmail.com
-              </p>
-              <div className="flex justify-center gap-4 pt-4">
-                <a href="https://www.instagram.com/laser_beauty_by_narin/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-neutral-400 rounded-full text-base font-medium hover:bg-neutral-100 transition">
-                  @laser_beauty_by_narin
-                </a>
+            <AnimateStaggerItem>
+              <div className="text-center space-y-4">
+                <h3 className="text-lg md:text-xl font-serif font-light text-neutral-900">
+                  {t.infoHeading}
+                </h3>
+                <p className="text-neutral-700 text-lg leading-relaxed font-light">
+                  Dotzheimer Straße 85, 65197 Wiesbaden<br />
+                  Tel.: +4916091369810 (WhatsApp)<br />
+                  narin861418@gmail.com
+                </p>
+                <div className="flex justify-center gap-4 pt-4">
+                  <a href="https://www.instagram.com/laser_beauty_by_narin/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-neutral-400 rounded-full text-base font-medium hover:bg-neutral-100 transition">
+                    @laser_beauty_by_narin
+                  </a>
+                </div>
               </div>
-            </div>
-          </div>
+            </AnimateStaggerItem>
+          </AnimateStagger>
 
           {/* Map */}
-          <div className="w-full h-[300px] md:h-[400px] overflow-hidden rounded-xl">
-            <iframe
-              src="https://maps.google.com/maps?q=Dotzheimer%20Stra%C3%9Fe%2085%20Wiesbaden&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-            ></iframe>
-          </div>
+          <AnimateIn delay={0.2}>
+            <div className="w-full h-[300px] md:h-[400px] overflow-hidden rounded-xl">
+              <iframe
+                src="https://maps.google.com/maps?q=Dotzheimer%20Stra%C3%9Fe%2085%20Wiesbaden&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </main>
