@@ -113,7 +113,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="mt-8 px-6">
+          <Link href="/booking" className="mt-8 px-6" onClick={() => setIsMobileMenuOpen(false)}>
             <button className="w-full px-6 py-3 bg-gradient-to-r from-gold-500 via-gold-600 to-bronze-500 text-white text-lg font-semibold rounded-full hover:shadow-glow-gold transition-all duration-300 hover:scale-105">
               {t.cta}
             </button>
