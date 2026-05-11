@@ -20,17 +20,13 @@ export default function BookingPage() {
   const t = translations[language];
 
   useEffect(() => {
-    const container = document.getElementById("planity-booking");
+    const container = document.getElementById("myContainerId");
 
     window.planity = {
-      key: "OazAlb9HlMA_D-_lEAW",
+      key: "-OazAlb9HlMA_D-_lEAW",
       primaryColor: "#C9A961",
-      options: { countryCode: "DE" },
       container,
-      accountContainer: container,
-      appointmentContainer: container,
-      giftVoucherContainer: container,
-      onlineShopContainer: container,
+      options: { countryCode: "DE" },
     };
 
     const polyfill = document.createElement("script");
@@ -51,6 +47,17 @@ export default function BookingPage() {
 
   return (
     <main className="min-h-screen bg-cream-50 pt-28 pb-20">
+      <style>{`
+        #planitywl { background-color: #FFF8ED; }
+        @media (min-width: 768px) { #planitywl h3 { color: #000000 !important; } }
+        #planitywl .planity_bookappointment-button-choose { background-color: #C9A961; }
+        .planity_ui_appointment_background > div:nth-child(2) { padding: 10px; }
+        .planity-gift-voucher-button-choose { background-color: #C9A961 !important; }
+        #planitywl > div:nth-child(2) > div:nth-child(2) > div > div > div > div > h2 { color: #000000 !important; }
+        #planitywl > div:nth-child(2) > div:nth-child(2) > div > div > div > h2 { color: #000000 !important; }
+        #planitywl > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) > span { color: #000000 !important; }
+      `}</style>
+
       <div className="container-custom max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif font-light text-neutral-900 mb-4">
@@ -60,10 +67,7 @@ export default function BookingPage() {
           <p className="text-neutral-600 text-lg">{t.subtitle}</p>
         </div>
 
-        <div
-          id="planity-booking"
-          className="rounded-2xl overflow-hidden shadow-lg min-h-[600px]"
-        />
+        <div id="myContainerId" className="rounded-2xl overflow-hidden shadow-lg min-h-[600px]" />
       </div>
     </main>
   );
