@@ -2,7 +2,7 @@
 
 import Hero from "@/components/sections/Hero";
 import { useLanguage } from "@/app/context/LanguageContext";
-import aboutPhoto from "@/app/images/narin-photo.jpg";
+import aboutPhoto from "@/app/images/narin-photo-2.jpg";
 import { AnimateIn, AnimateStagger, AnimateStaggerItem } from "@/components/ui/AnimateIn";
 
 const translations = {

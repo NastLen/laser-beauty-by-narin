@@ -9,14 +9,17 @@ const translations = {
   de: {
     subtitle: "Dauerhaft glatte Haut: professionell, sanft und ganz persönlich.",
     cta: "Preisliste ansehen",
+    booking: "Termin buchen",
   },
   en: {
     subtitle: "Smooth, confident skin: treated with care, just for you.",
     cta: "View Price List",
+    booking: "Book Appointment",
   },
   ru: {
     subtitle: "Гладкая кожа навсегда: с заботой, профессионально и именно для вас.",
     cta: "Смотреть прайс-лист",
+    booking: "Записаться",
   },
 };
 
@@ -167,9 +170,9 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
-            className="flex justify-center pt-8"
+            className="flex flex-wrap justify-center gap-4 pt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 2.8, ease: [0.22, 1, 0.36, 1] }}
@@ -185,7 +188,6 @@ export default function Hero() {
                 whileHover={{ y: -2, boxShadow: "0 15px 35px rgba(201, 169, 97, 0.5)" }}
                 whileTap={{ scale: 0.97 }}
               >
-                {/* shimmer sweep on appear */}
                 <motion.span
                   className="absolute inset-0 pointer-events-none"
                   initial={{ x: "-100%", opacity: 0.6 }}
@@ -194,6 +196,21 @@ export default function Hero() {
                   style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)" }}
                 />
                 {t.cta}
+              </motion.button>
+            </Link>
+
+            <Link href="/booking">
+              <motion.button
+                className="px-7 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-all duration-300 overflow-hidden relative"
+                style={{
+                  background: "linear-gradient(135deg, #C9A961, #D4AF37, #E6BE5A)",
+                  color: "#000",
+                  boxShadow: "0 10px 25px rgba(201, 169, 97, 0.3)",
+                }}
+                whileHover={{ y: -2, boxShadow: "0 15px 35px rgba(201, 169, 97, 0.5)" }}
+                whileTap={{ scale: 0.97 }}
+              >
+                {t.booking}
               </motion.button>
             </Link>
           </motion.div>
