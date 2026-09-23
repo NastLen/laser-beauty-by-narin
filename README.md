@@ -58,8 +58,6 @@ npm run dev
 │   └── sections/           # Page sections
 │       ├── Hero.tsx
 │       ├── About.tsx
-│       ├── Services.tsx
-│       ├── Benefits.tsx
 │       ├── Pricing.tsx
 │       └── Contact.tsx
 └── tailwind.config.js      # Tailwind configuration

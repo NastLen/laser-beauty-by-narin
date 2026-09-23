@@ -1,63 +1,35 @@
 "use client";
 
-import { useEffect } from "react";
 import { useLanguage } from "@/app/context/LanguageContext";
+import WhatsAppCta from "@/components/ui/WhatsAppCta";
 
 const translations = {
-  de: { title: "Termin buchen", subtitle: "Wählen Sie Ihre gewünschte Behandlung und buchen Sie online" },
-  en: { title: "Book Appointment", subtitle: "Choose your treatment and book online" },
-  ru: { title: "Записаться", subtitle: "Выберите процедуру и запишитесь онлайн" },
+  de: {
+    title: "Termin buchen",
+    subtitle: "Vereinbaren Sie Ihren Termin bequem per WhatsApp oder telefonisch.",
+    hint: "Schreiben Sie kurz, welche Behandlung Sie wünschen und wann es Ihnen passt – Sie erhalten eine Antwort mit einem Terminvorschlag.",
+    message: "Hallo, ich möchte gern einen Termin vereinbaren.",
+  },
+  en: {
+    title: "Book Appointment",
+    subtitle: "Book your appointment conveniently via WhatsApp or by phone.",
+    hint: "Just tell us which treatment you would like and when suits you – you will receive a reply with a suggested appointment.",
+    message: "Hello, I would like to book an appointment.",
+  },
+  ru: {
+    title: "Записаться",
+    subtitle: "Запишитесь на процедуру через WhatsApp или по телефону.",
+    hint: "Напишите, какая процедура вас интересует и когда вам удобно, — вам ответят и предложат время.",
+    message: "Здравствуйте! Хочу записаться на процедуру.",
+  },
 };
-
-declare global {
-  interface Window {
-    planity: object;
-  }
-}
 
 export default function BookingPage() {
   const { language } = useLanguage();
   const t = translations[language];
 
-  useEffect(() => {
-    const container = document.getElementById("myContainerId");
-
-    window.planity = {
-      key: "-OazAlb9HlMA_D-_lEAW",
-      primaryColor: "#C9A961",
-      container,
-      options: { countryCode: "DE" },
-    };
-
-    const polyfill = document.createElement("script");
-    polyfill.src = "https://d2skjte8udjqxw.cloudfront.net/widget/production/2/polyfills.latest.js";
-    polyfill.async = true;
-    document.body.appendChild(polyfill);
-
-    const app = document.createElement("script");
-    app.src = "https://d2skjte8udjqxw.cloudfront.net/widget/production/2/app.latest.js";
-    app.async = true;
-    document.body.appendChild(app);
-
-    return () => {
-      if (document.body.contains(polyfill)) document.body.removeChild(polyfill);
-      if (document.body.contains(app)) document.body.removeChild(app);
-    };
-  }, []);
-
   return (
     <main className="min-h-screen bg-cream-50 pt-28 pb-20">
-      <style>{`
-        #planitywl { background-color: #FFF8ED; }
-        @media (min-width: 768px) { #planitywl h3 { color: #000000 !important; } }
-        #planitywl .planity_bookappointment-button-choose { background-color: #C9A961; }
-        .planity_ui_appointment_background > div:nth-child(2) { padding: 10px; }
-        .planity-gift-voucher-button-choose { background-color: #C9A961 !important; }
-        #planitywl > div:nth-child(2) > div:nth-child(2) > div > div > div > div > h2 { color: #000000 !important; }
-        #planitywl > div:nth-child(2) > div:nth-child(2) > div > div > div > h2 { color: #000000 !important; }
-        #planitywl > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(2) > span { color: #000000 !important; }
-      `}</style>
-
       <div className="container-custom max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif font-light text-neutral-900 mb-4">
@@ -67,7 +39,7 @@ export default function BookingPage() {
           <p className="text-neutral-600 text-lg">{t.subtitle}</p>
         </div>
 
-        <div id="myContainerId" className="rounded-2xl overflow-hidden shadow-lg min-h-[600px]" />
+        <WhatsAppCta hint={t.hint} message={t.message} />
       </div>
     </main>
   );

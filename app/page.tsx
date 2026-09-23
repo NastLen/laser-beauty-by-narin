@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import { useLanguage } from "@/app/context/LanguageContext";
 import aboutPhoto from "@/app/images/narin-photo-2.jpg";
 import { AnimateIn, AnimateStagger, AnimateStaggerItem } from "@/components/ui/AnimateIn";
+import ConsentGate from "@/components/consent/ConsentGate";
 
 const translations = {
   de: {
@@ -16,6 +17,7 @@ const translations = {
     hoursHeading: "ÖFFNUNGSZEITEN",
     hoursText: ["Mo. – Fr.: 10:00 – 18:00 Uhr", "Sa.: 10:00 – 16:00 Uhr", "So.: Geschlossen", "Termine nach Vereinbarung"],
     infoHeading: "INFO",
+    mapLink: "Adresse in Google Maps öffnen",
   },
   en: {
     aboutTitle: "About Me",
@@ -27,6 +29,7 @@ const translations = {
     hoursHeading: "OPENING HOURS",
     hoursText: ["Mon. – Fri.: 10:00 – 18:00", "Sat.: 10:00 – 16:00", "Sun.: Closed", "Appointments by arrangement"],
     infoHeading: "INFO",
+    mapLink: "Open address in Google Maps",
   },
   ru: {
     aboutTitle: "Обо мне",
@@ -38,6 +41,7 @@ const translations = {
     hoursHeading: "ЧАСЫ РАБОТЫ",
     hoursText: ["Пн. – Пт.: 10:00 – 18:00", "Сб.: 10:00 – 16:00", "Вс.: Закрыто", "Запись по договорённости"],
     infoHeading: "ИНФОРМАЦИЯ",
+    mapLink: "Открыть адрес в Google Maps",
   },
 };
 
@@ -131,15 +135,31 @@ export default function Home() {
             </AnimateStaggerItem>
           </AnimateStagger>
 
-          {/* Map */}
+          {/* Map – Google Maps is loaded only after consent */}
           <AnimateIn delay={0.2}>
-            <div className="w-full h-[300px] md:h-[400px] overflow-hidden rounded-xl">
-              <iframe
-                src="https://maps.google.com/maps?q=Dotzheimer%20Stra%C3%9Fe%2085%20Wiesbaden&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                className="w-full h-full border-0"
-                loading="lazy"
-              ></iframe>
-            </div>
+            <ConsentGate
+              service="googleMaps"
+              className="min-h-[300px] md:min-h-[400px]"
+              fallback={
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Dotzheimer%20Stra%C3%9Fe%2085%2C%2065197%20Wiesbaden"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-gold-700"
+                >
+                  {t.mapLink}
+                </a>
+              }
+            >
+              <div className="w-full h-[300px] md:h-[400px] overflow-hidden rounded-xl">
+                <iframe
+                  src="https://maps.google.com/maps?q=Dotzheimer%20Stra%C3%9Fe%2085%20Wiesbaden&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  title="Google Maps"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </ConsentGate>
           </AnimateIn>
         </div>
       </section>

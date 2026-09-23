@@ -3,33 +3,38 @@
 import Link from "next/link";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 import { useLanguage } from "@/app/context/LanguageContext";
+import { useConsent } from "@/app/context/ConsentContext";
 
 const translations = {
   de: {
-    desc: "Premium Laser-Haarentfernung in luxuriösem Ambiente. Erleben Sie den Unterschied durch persönliche Betreuung und modernste Technologie.",
+    desc: "Premium Laser-Haarentfernung in luxuriösem Ambiente. Erleben Sie den Unterschied durch persönliche Betreuung und moderne Technologie.",
     navHeading: "Navigation",
     links: { about: "Über mich", services: "Leistungen", pricing: "Preise", contact: "Kontakt" },
     contactHeading: "Kontakt",
     copyright: "Alle Rechte vorbehalten.",
+    legal: { imprint: "Impressum", privacy: "Datenschutzerklärung", cookiePolicy: "Cookie-Richtlinie", cookieSettings: "Cookie-Einstellungen" },
   },
   en: {
-    desc: "Premium laser hair removal in a luxury setting. Experience the difference of personalized care and cutting-edge technology.",
+    desc: "Premium laser hair removal in a luxury setting. Experience the difference of personalized care and modern technology.",
     navHeading: "Navigation",
     links: { about: "About Me", services: "Services", pricing: "Pricing", contact: "Contact" },
     contactHeading: "Contact",
     copyright: "All rights reserved.",
+    legal: { imprint: "Legal Notice", privacy: "Privacy Policy", cookiePolicy: "Cookie Policy", cookieSettings: "Cookie Settings" },
   },
   ru: {
-    desc: "Премиум лазерная эпиляция в роскошной обстановке. Почувствуйте разницу благодаря индивидуальному подходу и передовым технологиям.",
+    desc: "Премиум лазерная эпиляция в роскошной обстановке. Почувствуйте разницу благодаря индивидуальному подходу и современным технологиям.",
     navHeading: "Навигация",
     links: { about: "Обо мне", services: "Услуги", pricing: "Цены", contact: "Контакты" },
     contactHeading: "Контакты",
     copyright: "Все права защищены.",
+    legal: { imprint: "Выходные данные", privacy: "Политика конфиденциальности", cookiePolicy: "Политика cookie", cookieSettings: "Настройки cookie" },
   },
 };
 
 export default function Footer() {
   const { language } = useLanguage();
+  const { openSettings } = useConsent();
   const t = translations[language];
 
   return (
@@ -72,7 +77,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-neutral-800 pt-8 text-center text-sm">
+        <div className="border-t border-neutral-800 pt-8 text-center text-sm space-y-4">
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            <Link href="/impressum" className="hover:text-gold-400 transition-colors">{t.legal.imprint}</Link>
+            <Link href="/datenschutz" className="hover:text-gold-400 transition-colors">{t.legal.privacy}</Link>
+            <Link href="/cookie-richtlinie" className="hover:text-gold-400 transition-colors">{t.legal.cookiePolicy}</Link>
+            <button type="button" onClick={openSettings} className="hover:text-gold-400 transition-colors">
+              {t.legal.cookieSettings}
+            </button>
+          </nav>
           <p>&copy; {new Date().getFullYear()} Laser Beauty by Narin. {t.copyright}</p>
         </div>
       </div>

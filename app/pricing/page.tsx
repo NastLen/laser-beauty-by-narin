@@ -1,8 +1,8 @@
 import Pricing from "@/components/sections/Pricing";
 
 export const metadata = {
-  title: "Цены | Laser Beauty by Narin",
-  description: "Прозрачное ценообразование на все наши услуги",
+  title: "Preisliste | Laser Beauty by Narin",
+  description: "Preise für Laser-Haarentfernung mit DEKA Motus AX pro Sitzung und als Angebotspakete sowie für Wimpern- und Browlifting.",
 };
 
 export default function PricingPage() {

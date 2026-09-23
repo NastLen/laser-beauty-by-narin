@@ -1,8 +1,8 @@
 import About from "@/components/sections/About";
 
 export const metadata = {
-  title: "О нас | Laser Beauty by Narin",
-  description: "Узнайте больше о нашей студии премиум лазерной эпиляции",
+  title: "Über mich | Laser Beauty by Narin",
+  description: "Laser Beauty by Narin in Wiesbaden: moderne Laser-Haarentfernung mit persönlicher Betreuung.",
 };
 
 export default function AboutPage() {

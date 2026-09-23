@@ -7,7 +7,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 const translations = {
   de: {
-    subtitle: "Dauerhaft glatte Haut: professionell, sanft und ganz persönlich.",
+    subtitle: "Langanhaltend glatte Haut: professionell, sanft und ganz persönlich.",
     cta: "Preisliste ansehen",
     booking: "Termin buchen",
   },
@@ -17,7 +17,7 @@ const translations = {
     booking: "Book Appointment",
   },
   ru: {
-    subtitle: "Гладкая кожа навсегда: с заботой, профессионально и именно для вас.",
+    subtitle: "Гладкая кожа надолго: с заботой, профессионально и именно для вас.",
     cta: "Смотреть прайс-лист",
     booking: "Записаться",
   },

@@ -1,8 +1,8 @@
 import Contact from "@/components/sections/Contact";
 
 export const metadata = {
-  title: "Контакты | Laser Beauty by Narin",
-  description: "Свяжитесь с нами для записи на процедуру",
+  title: "Kontakt | Laser Beauty by Narin",
+  description: "Kontakt und Öffnungszeiten von Laser Beauty by Narin, Dotzheimer Straße 85, 65197 Wiesbaden.",
 };
 
 export default function ContactPage() {

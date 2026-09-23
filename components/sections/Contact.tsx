@@ -1,29 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 import Section from "@/components/ui/Section";
-import Button from "@/components/ui/Button";
+import WhatsAppCta from "@/components/ui/WhatsAppCta";
 import { useLanguage } from "@/app/context/LanguageContext";
 
 const translations = {
   de: {
     heading1: "Buchen Sie Ihre",
-    heading2: "kostenlose Beratung",
-    subtitle: "Machen Sie den ersten Schritt zu müheloser Schönheit. Unsere Experten beantworten Ihre Fragen und erstellen einen individuellen Behandlungsplan.",
-    labelName: "Vollständiger Name *",
-    placeholderName: "Ihr Name",
-    labelEmail: "E-Mail-Adresse *",
-    placeholderEmail: "ihre.email@beispiel.de",
-    labelPhone: "Telefonnummer",
-    placeholderPhone: "+49 (611) 123-4567",
-    labelService: "Gewünschte Behandlung",
-    placeholderService: "Behandlung wählen",
-    serviceOptions: ["Ganzkörper", "Gesicht", "Achseln", "Bikini & Brazilian", "Beine", "Arme", "Rücken & Brust", "Individuelle Bereiche"],
-    labelMessage: "Nachricht",
-    placeholderMessage: "Erzählen Sie uns von Ihren Wünschen oder stellen Sie Ihre Fragen...",
-    submit: "Nachricht senden",
-    alert: "Vielen Dank für Ihr Interesse! Wir werden uns in Kürze bei Ihnen melden.",
+    heading2: "persönliche Beratung",
+    subtitle: "Machen Sie den ersten Schritt zu müheloser Schönheit. Sie erhalten persönliche Antworten auf Ihre Fragen und einen individuellen Behandlungsplan.",
+    whatsappHint: "Schreiben Sie Ihre Fragen einfach per WhatsApp – zum Beispiel zu Behandlungen, Preisen oder Terminen.",
+    whatsappMessage: "Hallo, ich möchte gern eine persönliche Beratung vereinbaren.",
     visitHeading: "Unser Studio besuchen",
     addressLabel: "Adresse",
     phoneLabel: "Telefon",
@@ -39,21 +27,10 @@ const translations = {
   },
   en: {
     heading1: "Book Your",
-    heading2: "Free Consultation",
-    subtitle: "Take the first step towards effortless beauty. Our experts are here to answer your questions and create a personalized treatment plan.",
-    labelName: "Full Name *",
-    placeholderName: "Your name",
-    labelEmail: "Email Address *",
-    placeholderEmail: "your.email@example.com",
-    labelPhone: "Phone Number",
-    placeholderPhone: "+1 (555) 123-4567",
-    labelService: "Service Interested In",
-    placeholderService: "Select a service",
-    serviceOptions: ["Full Body", "Face", "Underarms", "Bikini & Brazilian", "Legs", "Arms", "Back & Chest", "Custom Areas"],
-    labelMessage: "Message",
-    placeholderMessage: "Tell us about your needs or ask any questions...",
-    submit: "Send Message",
-    alert: "Thank you for your interest! We will contact you shortly.",
+    heading2: "Personal Consultation",
+    subtitle: "Take the first step towards effortless beauty. You'll get personal answers to your questions and an individual treatment plan.",
+    whatsappHint: "Simply send us your questions via WhatsApp – for example about treatments, prices or appointments.",
+    whatsappMessage: "Hello, I would like to arrange a personal consultation.",
     visitHeading: "Visit Our Studio",
     addressLabel: "Address",
     phoneLabel: "Phone",
@@ -69,21 +46,10 @@ const translations = {
   },
   ru: {
     heading1: "Запишитесь на",
-    heading2: "бесплатную консультацию",
-    subtitle: "Сделайте первый шаг к безупречной красоте. Наши специалисты ответят на ваши вопросы и составят индивидуальный план процедур.",
-    labelName: "Полное имя *",
-    placeholderName: "Ваше имя",
-    labelEmail: "Электронная почта *",
-    placeholderEmail: "ваш.email@example.com",
-    labelPhone: "Номер телефона",
-    placeholderPhone: "+7 (XXX) XXX-XX-XX",
-    labelService: "Интересующая услуга",
-    placeholderService: "Выберите услугу",
-    serviceOptions: ["Всё тело", "Лицо", "Подмышки", "Бикини & Бразильское", "Ноги", "Руки", "Спина & Грудь", "Индивидуальные зоны"],
-    labelMessage: "Сообщение",
-    placeholderMessage: "Расскажите о своих пожеланиях или задайте вопросы...",
-    submit: "Отправить",
-    alert: "Спасибо за ваш интерес! Мы свяжемся с вами в ближайшее время.",
+    heading2: "персональную консультацию",
+    subtitle: "Сделайте первый шаг к безупречной красоте. Вы получите ответы на свои вопросы и индивидуальный план процедур.",
+    whatsappHint: "Просто напишите свои вопросы в WhatsApp — например, о процедурах, ценах или записи.",
+    whatsappMessage: "Здравствуйте! Хочу записаться на консультацию.",
     visitHeading: "Посетите нашу студию",
     addressLabel: "Адрес",
     phoneLabel: "Телефон",
@@ -99,30 +65,9 @@ const translations = {
   },
 };
 
-const serviceValues = ["full-body", "face", "underarms", "bikini", "legs", "arms", "back-chest", "custom"];
-
 export default function Contact() {
   const { language } = useLanguage();
   const t = translations[language];
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(t.alert);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <Section background="white" className="scroll-mt-20" id="contact">
@@ -139,51 +84,8 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-cream-50 rounded-2xl p-8 shadow-soft">
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">{t.labelName}</label>
-                <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow"
-                  placeholder={t.placeholderName} />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">{t.labelEmail}</label>
-                <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow"
-                  placeholder={t.placeholderEmail} />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-2">{t.labelPhone}</label>
-                <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow"
-                  placeholder={t.placeholderPhone} />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-neutral-700 mb-2">{t.labelService}</label>
-                <select id="service" name="service" value={formData.service} onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow">
-                  <option value="">{t.placeholderService}</option>
-                  {t.serviceOptions.map((label, i) => (
-                    <option key={serviceValues[i]} value={serviceValues[i]}>{label}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">{t.labelMessage}</label>
-                <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold-400 transition-shadow resize-none"
-                  placeholder={t.placeholderMessage} />
-              </div>
-
-              <Button type="submit" className="w-full">{t.submit}</Button>
-            </form>
-          </div>
+          {/* WhatsApp instead of a form: no form data is collected or stored on the website */}
+          <WhatsAppCta hint={t.whatsappHint} message={t.whatsappMessage} showPhone={false} />
 
           {/* Contact Information */}
           <div className="space-y-8">

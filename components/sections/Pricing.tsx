@@ -3,6 +3,7 @@
 import { useLanguage } from "@/app/context/LanguageContext";
 import servicesBg from "@/app/images/services-bg.jpg";
 import { AnimateIn, AnimateStagger, AnimateStaggerItem } from "@/components/ui/AnimateIn";
+import { BUSINESS } from "@/components/legal/businessInfo";
 
 const translations = {
   de: {
@@ -10,6 +11,11 @@ const translations = {
     subtitle: "DEKA Motus AX",
     note: "Alle Preise pro Sitzung",
     packagesTitle: "Angebotspakete",
+    packagesNote: "Durchgestrichen: Preis bei Einzelbuchung der enthaltenen Zonen",
+    insteadOf: "statt",
+    laserNote: "Für ein gutes Ergebnis sind in der Regel mehrere Sitzungen im Abstand von einigen Wochen nötig. Wie viele, hängt von Haut- und Haartyp sowie der Körperzone ab. Die Laserbehandlung bewirkt eine langanhaltende Haarreduktion – ein dauerhaftes Ausbleiben aller Haare kann nicht garantiert werden. Bei sehr hellen, grauen oder roten Haaren ist die Wirkung eingeschränkt.",
+    vatIncluded: "Alle Preise sind Endpreise inkl. gesetzlicher MwSt.",
+    vatSmallBusiness: "Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.",
     beautyTitle: "Beauty",
     categories: [
       {
@@ -54,7 +60,7 @@ const translations = {
       { label: "Gesicht komplett", duration: "40 Min.", oldPrice: "160€", price: "120€" },
       { label: "Bikini komplett + Achseln", duration: "1 Std.", oldPrice: "220€", price: "170€" },
       { label: "Bikini komplett + Achseln + Unterschenkel", duration: "1 Std. 30 Min.", oldPrice: "330€", price: "230€" },
-      { label: "Bikini komplett + Achseln + Beine komplett", duration: "2 Std.", oldPrice: "390€", price: "300€" },
+      { label: "Bikini komplett + Achseln + Beine komplett", duration: "2 Std.", oldPrice: "410€", price: "300€" },
       { label: "Bikini komplett + Beine komplett", duration: "1 Std. 40 Min.", oldPrice: "340€", price: "240€" },
       { label: "Ganzer Körper", duration: "3 Std.", oldPrice: null, price: "550€", highlight: true },
     ],
@@ -69,6 +75,11 @@ const translations = {
     subtitle: "DEKA Motus AX",
     note: "All prices per session",
     packagesTitle: "Package Deals",
+    packagesNote: "Crossed out: price when booking the included areas individually",
+    insteadOf: "instead of",
+    laserNote: "Good results usually require several sessions a few weeks apart. How many depends on your skin and hair type and the body area. Laser treatment achieves long-lasting hair reduction – permanent absence of all hair cannot be guaranteed. The effect is limited on very light, grey or red hair.",
+    vatIncluded: "All prices are final prices including statutory VAT.",
+    vatSmallBusiness: "All prices are final prices. In accordance with § 19 UStG (German small business regulation), no VAT is charged.",
     beautyTitle: "Beauty",
     categories: [
       {
@@ -113,7 +124,7 @@ const translations = {
       { label: "Full face", duration: "40 min.", oldPrice: "160€", price: "120€" },
       { label: "Full bikini + Underarms", duration: "1 hr.", oldPrice: "220€", price: "170€" },
       { label: "Full bikini + Underarms + Lower legs", duration: "1 hr. 30 min.", oldPrice: "330€", price: "230€" },
-      { label: "Full bikini + Underarms + Full legs", duration: "2 hr.", oldPrice: "390€", price: "300€" },
+      { label: "Full bikini + Underarms + Full legs", duration: "2 hr.", oldPrice: "410€", price: "300€" },
       { label: "Full bikini + Full legs", duration: "1 hr. 40 min.", oldPrice: "340€", price: "240€" },
       { label: "Full body", duration: "3 hr.", oldPrice: null, price: "550€", highlight: true },
     ],
@@ -128,6 +139,11 @@ const translations = {
     subtitle: "DEKA Motus AX",
     note: "Все цены за одну процедуру",
     packagesTitle: "Пакетные предложения",
+    packagesNote: "Зачёркнуто: цена при записи на каждую зону отдельно",
+    insteadOf: "вместо",
+    laserNote: "Для хорошего результата обычно нужно несколько сеансов с интервалом в несколько недель. Их количество зависит от типа кожи и волос и от зоны. Лазерная процедура даёт стойкое уменьшение роста волос — полное и окончательное отсутствие волос гарантировать нельзя. На очень светлых, седых и рыжих волосах эффект ограничен.",
+    vatIncluded: "Все цены окончательные, включая НДС.",
+    vatSmallBusiness: "Все цены окончательные. Согласно § 19 UStG (режим малого предпринимателя) НДС не взимается.",
     beautyTitle: "Бьюти",
     categories: [
       {
@@ -172,7 +188,7 @@ const translations = {
       { label: "Лицо полностью", duration: "40 мин.", oldPrice: "160€", price: "120€" },
       { label: "Бикини полностью + Подмышки", duration: "1 ч.", oldPrice: "220€", price: "170€" },
       { label: "Бикини полностью + Подмышки + Голень", duration: "1 ч. 30 мин.", oldPrice: "330€", price: "230€" },
-      { label: "Бикини полностью + Подмышки + Ноги полностью", duration: "2 ч.", oldPrice: "390€", price: "300€" },
+      { label: "Бикини полностью + Подмышки + Ноги полностью", duration: "2 ч.", oldPrice: "410€", price: "300€" },
       { label: "Бикини полностью + Ноги полностью", duration: "1 ч. 40 мин.", oldPrice: "340€", price: "240€" },
       { label: "Всё тело", duration: "3 ч.", oldPrice: null, price: "550€", highlight: true },
     ],
@@ -267,21 +283,27 @@ export default function Pricing() {
         {/* ── Angebotspakete ── */}
         <AnimateIn delay={0.1}>
           <div className="rounded-2xl p-8 md:p-10 mb-10" style={cardStyle}>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-[1px] bg-gradient-to-r from-gold-400 to-transparent" />
               <h3 className="text-2xl font-serif font-semibold uppercase tracking-widest" style={goldText}>{t.packagesTitle}</h3>
               <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-400/40 to-transparent" />
             </div>
+            <p className="mb-8 text-sm text-white/60">{t.packagesNote}</p>
             <ul className="space-y-4">
               {t.packages.map((pkg, i) => (
                 <li key={i} className={`flex items-center gap-3 py-2 border-b border-white/8 last:border-0 ${pkg.highlight ? "mt-4 pt-4 border-t border-gold-400/30" : ""}`}>
-                  <span className={`flex-1 text-base font-light ${pkg.highlight ? "text-white font-semibold text-lg" : "text-white/90"}`}>
-                    {pkg.label}
-                  </span>
-                  <span className="text-white/40 text-sm shrink-0">{pkg.duration}</span>
+                  <div className="flex-1 min-w-0 sm:flex sm:items-center sm:gap-3">
+                    <span className={`block sm:flex-1 text-base font-light ${pkg.highlight ? "text-white font-semibold text-lg" : "text-white/90"}`}>
+                      {pkg.label}
+                    </span>
+                    <span className="block text-white/40 text-sm sm:shrink-0">{pkg.duration}</span>
+                  </div>
                   <div className="flex items-center gap-3 shrink-0">
                     {pkg.oldPrice && (
-                      <span className="text-white/35 text-sm line-through">{pkg.oldPrice}</span>
+                      <span className="text-white/35 text-sm">
+                        <span className="sr-only">{t.insteadOf} </span>
+                        <span className="line-through">{pkg.oldPrice}</span>
+                      </span>
                     )}
                     <span className={`font-semibold min-w-[3.5rem] text-right ${pkg.highlight ? "text-xl" : "text-base"}`} style={goldText}>
                       {pkg.price}
@@ -291,6 +313,13 @@ export default function Pricing() {
               ))}
             </ul>
           </div>
+        </AnimateIn>
+
+        {/* ── Hinweis zur Laserbehandlung – rechtlich nötig, nicht entfernen ── */}
+        <AnimateIn delay={0.1}>
+          <p className="rounded-2xl px-6 py-5 md:px-10 mb-10 text-sm leading-relaxed text-white/80" style={cardStyle}>
+            {t.laserNote}
+          </p>
         </AnimateIn>
 
         {/* ── Beauty ── */}
@@ -311,6 +340,12 @@ export default function Pricing() {
             </ul>
           </div>
         </AnimateIn>
+
+        <p className="mt-8 text-center text-sm text-white/80">
+          <span className="inline-block rounded-full px-5 py-2" style={cardStyle}>
+            {BUSINESS.smallBusiness ? t.vatSmallBusiness : t.vatIncluded}
+          </span>
+        </p>
 
       </div>
     </section>

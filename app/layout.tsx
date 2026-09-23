@@ -9,6 +9,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/app/context/LanguageContext";
+import { ConsentProvider } from "@/app/context/ConsentContext";
+import ConsentSettings from "@/components/consent/ConsentSettings";
 
 const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -39,9 +41,9 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Laser Beauty by Narin | Premium Laser Hair Removal",
+  title: "Laser Beauty by Narin | Laser-Haarentfernung in Wiesbaden",
   description:
-    "Experience luxury laser hair removal in an elegant, comfortable setting. Premium beauty treatments with cutting-edge technology.",
+    "Laser-Haarentfernung mit DEKA Motus AX in Wiesbaden – persönlich, professionell und sanft. Preisliste, Kontakt und Online-Terminbuchung.",
 };
 
 export default function RootLayout({
@@ -51,14 +53,17 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="de"
       className={`${playfair.variable} ${dmSans.variable} ${marcellus.variable} ${greatVibes.variable}`}
     >
       <body className="font-sans">
         <LanguageProvider>
-          <Header />
-          <div>{children}</div>
-          <Footer />
+          <ConsentProvider>
+            <ConsentSettings />
+            <Header />
+            <div>{children}</div>
+            <Footer />
+          </ConsentProvider>
         </LanguageProvider>
       </body>
     </html>
